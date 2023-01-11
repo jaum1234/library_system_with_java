@@ -9,6 +9,7 @@ public class Library
     public Library()
     {
         this.books = new ArrayList<>();
+        this.clients = new ArrayList<>();
     }
 
     public void registerBook(

@@ -82,4 +82,18 @@ public class LibraryTest
             this.library.removeBook(book1Name, book1Author)
         );
     }
+
+    @Test
+    @DisplayName("Shoud register a new client")
+    void shouldRegisterANewClient() throws Exception
+    {
+        String cpf = "11111111111";
+        String name = "client name";
+
+        assertDoesNotThrow(() ->
+            this.library.registerClient(cpf, name)
+        );
+
+        assertTrue(this.library.containsClient(cpf));
+    }
 }
