@@ -1,3 +1,4 @@
+import exceptions.DuplicatedEntryException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,7 +49,7 @@ public class LibraryTest
             this.library.registerBook(book1Name, book1Author, book1Publisher, book1PublishData)
         );
 
-        assertThrows(Exception.class, () ->
+        assertThrows(DuplicatedEntryException.class, () ->
             this.library.registerBook(book2Name, book2Author, book2Publisher, book2PublishData)
         );
     }
@@ -111,7 +112,7 @@ public class LibraryTest
             this.library.registerClient(cpf1, name1)
         );
 
-        assertThrows(Exception.class, () ->
+        assertThrows(DuplicatedEntryException.class, () ->
             this.library.registerClient(cpf2, name2)
         );
     }

@@ -1,3 +1,5 @@
+import exceptions.DuplicatedEntryException;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -20,8 +22,9 @@ public class Library
     ) throws Exception
     {
         if (this.containsBook(title, author)) {
-            throw new Exception("Book already registed.");
+            throw new DuplicatedEntryException("Book already registed.");
         }
+
 
         Book book = new Book(title, author, publisher, publishDate);
 
@@ -60,7 +63,7 @@ public class Library
     public void registerClient(String cpf, String name) throws Exception
     {
         if (this.containsClient(cpf)) {
-            throw new Exception("Client already registered");
+            throw new DuplicatedEntryException("Client already registered");
         }
 
         Client client = new Client(cpf, name);
