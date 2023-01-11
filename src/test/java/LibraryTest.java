@@ -1,4 +1,5 @@
 import exceptions.DuplicatedEntryException;
+import exceptions.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -79,7 +80,7 @@ public class LibraryTest
         String book1Name = "book name";
         String book1Author = "book author";
 
-        assertThrows(Exception.class, () ->
+        assertThrows(EntityNotFoundException.class, () ->
             this.library.removeBook(book1Name, book1Author)
         );
     }
