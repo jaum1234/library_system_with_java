@@ -1,4 +1,4 @@
-# app.Library System
+# Library System
 System for the management of a library.
 
 ## Business Rules
