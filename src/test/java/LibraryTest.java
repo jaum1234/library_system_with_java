@@ -96,4 +96,23 @@ public class LibraryTest
 
         assertTrue(this.library.containsClient(cpf));
     }
+
+    @Test
+    @DisplayName("Shoud not register duplicated clients")
+    void shouldNotRegisterDuplicatedClients() throws Exception
+    {
+        String cpf1 = "11111111111";
+        String name1 = "client name";
+
+        String cpf2 = "11111111111";
+        String name2 = "another client name";
+
+        assertDoesNotThrow(() ->
+            this.library.registerClient(cpf1, name1)
+        );
+
+        assertThrows(Exception.class, () ->
+            this.library.registerClient(cpf2, name2)
+        );
+    }
 }
