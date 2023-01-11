@@ -56,9 +56,15 @@ public class Library
         return null;
     }
 
-    public void registerClient(String cpf, String name)
+    public void registerClient(String cpf, String name) throws Exception
     {
+        if (this.containsClient(cpf)) {
+            throw new Exception("Client already registered");
+        }
 
+        Client client = new Client(cpf, name);
+
+        this.clients.add(client);
     }
 
     public boolean containsClient(String cpf)
