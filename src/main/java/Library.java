@@ -4,6 +4,7 @@ import java.util.Date;
 public class Library
 {
     private ArrayList<Book> books;
+    private ArrayList<Client> clients;
 
     public Library()
     {
@@ -55,5 +56,17 @@ public class Library
         return null;
     }
 
+    public void registerClient(String cpf, String name)
+    {
 
+    }
+
+    public boolean containsClient(String cpf)
+    {
+        for (Client client : this.clients) {
+            if (client.cpf().equals(cpf)) return true;
+        }
+
+        return false;
+    }
 }
