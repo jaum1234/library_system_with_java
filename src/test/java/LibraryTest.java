@@ -44,11 +44,42 @@ public class LibraryTest
         String book2Publisher = "book publisher";
         Date book2PublishData = new Date();
 
-        this.library.registerBook(book1Name, book1Author, book1Publisher, book1PublishData);
+        assertDoesNotThrow(() ->
+            this.library.registerBook(book1Name, book1Author, book1Publisher, book1PublishData)
+        );
 
         assertThrows(Exception.class, () ->
             this.library.registerBook(book2Name, book2Author, book2Publisher, book2PublishData)
         );
+    }
 
+    @Test
+    @DisplayName("Should remove a book.")
+    void shouldRemoveABook() throws Exception
+    {
+        String book1Name = "book name";
+        String book1Author = "book author";
+        String book1Publisher = "book publisher";
+        Date book1PublishData = new Date();
+
+        this.library.registerBook(book1Name, book1Author, book1Publisher, book1PublishData);
+
+        assertDoesNotThrow(() ->
+            this.library.removeBook(book1Name, book1Author)
+        );
+
+        assertFalse(this.library.containsBook(book1Name, book1Author));
+    }
+
+    @Test
+    @DisplayName("Should not remove book if it does not exists.")
+    void shouldNotRemoveBookIfItDoesNotExists() throws Exception
+    {
+        String book1Name = "book name";
+        String book1Author = "book author";
+
+        assertThrows(Exception.class, () ->
+            this.library.removeBook(book1Name, book1Author)
+        );
     }
 }
