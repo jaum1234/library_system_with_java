@@ -1,4 +1,5 @@
 import exceptions.DuplicatedEntryException;
+import exceptions.EntityNotFoundException;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,7 +37,7 @@ public class Library
         Book book = this.findBook(title, author);
 
         if (book == null) {
-            throw new Exception("Book not found");
+            throw new EntityNotFoundException("Book not found");
         }
 
         this.books.remove(book);
