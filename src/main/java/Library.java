@@ -43,6 +43,7 @@ public class Library
         this.books.remove(book);
     }
 
+    // Time complexity: O(n)
     public boolean containsBook(String title, String author)
     {
         for (Book registedBook : this.books) {
@@ -52,6 +53,7 @@ public class Library
         return false;
     }
 
+    // Time complexity: O(n)
     public Book findBook(String title, String author)
     {
         for (Book registedBook : this.books) {
@@ -61,6 +63,7 @@ public class Library
         return null;
     }
 
+    // Time complexity: O(n)
     public void registerClient(String cpf, String name) throws Exception
     {
         if (this.containsClient(cpf)) {
